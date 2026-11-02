@@ -4,6 +4,7 @@ import { light } from "../../content/light";
 import { lightColor, mixHex } from "../../lib/light";
 import { photo } from "../../photos";
 import { colors } from "../../theme";
+import { windowMask } from "./windowMask";
 
 interface LightPreviewProps {
   kelvin: number;
@@ -43,6 +44,18 @@ const LightPreview = ({ kelvin, brightness, sceneName, sx }: LightPreviewProps) 
           transition,
         }}
       />
+      <Box
+        aria-hidden="true"
+        sx={{ position: "absolute", inset: 0, maskImage: windowMask, maskSize: "100% 100%", WebkitMaskImage: windowMask, WebkitMaskSize: "100% 100%" }}
+      >
+        <Photo
+          source={photo("living-room")}
+          alt=""
+          tone="transparent"
+          sizes="(min-width: 1280px) 700px, (min-width: 900px) 55vw, 100vw"
+          sx={{ position: "absolute", inset: 0 }}
+        />
+      </Box>
       <Box
         sx={{
           position: "absolute",

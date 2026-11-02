@@ -31,7 +31,7 @@ const Monogram = ({ woods, selected, letters, label }: MonogramProps) => {
           const source = photo(wood.photo);
           return source ? (
             <pattern key={wood.id} id={`${base}-${wood.id}`} patternUnits="userSpaceOnUse" x="-95" y="30" width="725" height="205">
-              <image href={source.small} x="-95" y="30" width="725" height="205" preserveAspectRatio="xMidYMid slice" />
+              <image href={source.small} x="0" y="0" width="725" height="205" preserveAspectRatio="xMidYMid slice" />
             </pattern>
           ) : null;
         })}
