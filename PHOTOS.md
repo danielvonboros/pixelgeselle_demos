@@ -23,6 +23,8 @@ Commit the downloaded files. The deploy workflow also runs `yarn photos`, but it
 
 ### Raumton · painter, Berlin
 
+The tone picker colours only the wall. `sites/raumton/src/assets/room-wall-mask.png` is a transparent mask of the wall in `room`, without chair, skirting and floor. It fits only this photo: when `room` changes, run `python3 scripts/wallMask.py sites/raumton/src/assets/photos/room-1600.jpg sites/raumton/src/assets/room-wall-mask.png` with Pillow, NumPy and SciPy installed, and adjust the skirting line and the chair area in the script to the new photo.
+
 | File | Ratio | Used for | Source |
 | --- | --- | --- | --- |
 | `room` | 16:9 | Colour tone visual next to the hero. The wall is tinted live with the selected tone, so it has to be light and plain. | [Unsplash](https://unsplash.com/photos/wicker-chair-with-metal-legs-on-a-wooden-floor-DJ3dx5MoUIw) |
@@ -38,6 +40,8 @@ Prompts:
 - **facade**: Photorealistic street photo of freshly painted Gründerzeit facades in Berlin-Friedenau, warm ochre and cream tones, stucco ornaments and balconies, blue sky, morning light, slightly from below. Portrait 4:5. No people, no readable signs, no text.
 
 ### Phase · electrician, Köln
+
+The light simulator leaves the garden behind the window unchanged. The two window panes of `living-room` are traced as polygons in `sites/phase/src/components/lightPreview/windowMask.ts`, in pixels of the 1600 × 1200 photo. When `living-room` changes, trace the panes of the new photo.
 
 | File | Ratio | Used for | Source |
 | --- | --- | --- | --- |

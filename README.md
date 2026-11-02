@@ -21,10 +21,12 @@ All demo businesses are fictional. Every site says so in a bar at the top and in
 
 What each site shows off:
 
-- Raumton: colour tone picker that repaints the wall in the photo and the logo bar, numbered service list, prices, contact form.
-- Phase: light simulator with scenes, colour temperature and brightness on a real room photo, service list, projects, contact form with photo upload.
-- Firstlinie: clickable roof build-up, live cursor coordinates, four technical drawings as SVG components, staggered project grid, title block footer.
-- Werkstatt Ahrens: monogram filled with the selected wood, material panel, filterable projects, process, careers teaser with quick application, contact form with photo upload.
+- Raumton: one page. Colour tone picker that repaints only the wall in the photo and the logo bar, numbered service list, prices, contact form.
+- Phase: six pages, the home page and one page per service. Light simulator with scenes, colour temperature and brightness on a real room photo, the garden behind the window stays as it is. Projects, contact form with photo upload.
+- Firstlinie: six pages, the home page, one page per service with its technical drawing and a careers page with quick application. Clickable roof build-up, live cursor coordinates, staggered project grid, title block footer that counts the sheets.
+- Werkstatt Ahrens: nine pages, the home page, three service pages, all projects with filter, a careers page with quick application and three pages for towns around Munich. Monogram filled with the selected wood, material panel, process, contact form with photo upload.
+
+The page counts stay within the sizes on the sales page: S up to 3, M up to 6, L up to 12 pages.
 
 ### Structure
 
@@ -36,12 +38,14 @@ sites/
     src/
       content/     all visible copy, German
       components/  one folder per component
-      sections/    page sections in order of appearance
+      sections/    page sections, shared by the pages
+      pages/       one component per page type, routes in App.tsx
       assets/      photos, downloaded by yarn photos
       demo.json    name, trade, city, size and catalog thumbnail
       photos.ts    photo library of the site
       theme.ts     colours and fonts of the site
-scripts/           photo download and catalog export
+scripts/           photo download, catalog export, page previews, wall mask
+previews/          screenshot of every home page for the catalog
 deploy/            .htaccess for the demo subdomain
 photos.json        photo manifest, see PHOTOS.md
 ```
@@ -65,9 +69,20 @@ photos.json        photo manifest, see PHOTOS.md
 | `DemoBar`                                  | bar at the top: example page, size and a link to the Pixelgesellen prices |
 | `DemoNotice`, `DemoLegalLinks`             | footer notice and links to the Pixelgesellen imprint and privacy policy |
 | `InquiryForm`                              | contact form, optional photo upload, opens the demo dialog on submit    |
+| `ApplicationForm`                          | quick application: name, mobile number, career stage, optional CV       |
+| `RouterProvider`, `Routes`, `useRoute`     | client side routing for the pages of a site, see Pages                  |
+| `href`, `Breadcrumbs`                      | link to a page of the current site, breadcrumb trail on subpages        |
 | `Photo`, `createPhotoLibrary`              | responsive photo with `srcset`, labelled placeholder while missing      |
 | `PageContainer`, `SkipLink`, `useSvgId`    | layout width, skip link and unique ids for SVG patterns                 |
 | `brand`                                    | name, URLs and colours of the Pixelgesellen brand                       |
+
+### Pages
+
+A site with more than one page lists its routes in `App.tsx`: path, document title and the page element. `RouterProvider` reads the path below the site folder, catches clicks on links into the same site and swaps the page without a reload. It scrolls to the top or to the `#anchor` of the link, moves focus to `main` and keeps the back button working. `Routes` renders the matching page, sets the title and shows a 404 page for unknown paths.
+
+- Links are built with `href("/leistungen/wallbox")`, which prefixes the site folder, e.g. `/phase/leistungen/wallbox`. Header links point to `href("/#kontakt")`, so they work from every page.
+- Sections that appear on several pages take what differs as props, e.g. the placeholder of the contact form.
+- The pages are rendered in the browser and not prerendered. The demos are `noindex` anyway. A real client site with pages per service gets prerendered HTML, so search engines see each page without JavaScript.
 
 ### Photos
 
@@ -78,7 +93,8 @@ See [PHOTOS.md](PHOTOS.md). `yarn photos` downloads every photo listed in `photo
 The Pixelgesellen sales page links to the demos and can show them in a modal later. To keep the sales page fast, it does not bundle anything from this repository:
 
 - `yarn build` writes `dist/catalog.json`: one entry per site with business, trade, city, size, URL and thumbnail.
-- The thumbnail is the photo named in the site's `demo.json`, copied to `dist/catalog/<site>.jpg`.
+- The thumbnail is a screenshot of the site's home page from `previews/<site>.jpg`, copied to `dist/catalog/<site>.jpg`. Without a preview the photo named in `demo.json` is used.
+- `yarn previews` takes the screenshots: it serves `dist/` with `vite preview`, opens every home page in headless Chrome at 1280 × 1056, cuts off the demo bar and saves a 1200 × 900 JPEG. It needs Chrome and `sips`, so it runs on a Mac. Run `yarn build` first and commit the previews after every visible change to a home page.
 - The sales page loads the thumbnails and, once there is a modal, `catalog.json` from the demo subdomain. New demos appear without a change to the sales page.
 
 ### Deployment
@@ -95,7 +111,7 @@ All sites are deployed together to `demos.pixelgesellen.de`, each in its own fol
 | `SSH_HOST`        | SSH host of the all-inkl account                         |
 | `SSH_TARGET`      | document root of the subdomain, e.g. `/www/htdocs/w0123456/demos.pixelgesellen.de/` |
 
-`deploy/.htaccess` is copied to `dist/`. It forces HTTPS, sends `X-Robots-Tag: noindex, nofollow`, allows pixelgesellen.de to read `catalog.json` and caches hashed assets for a year.
+`deploy/.htaccess` is copied to `dist/`. It forces HTTPS, answers every path inside a site folder that is not a file with that site's `index.html`, so subpages work on reload and as direct links, sends `X-Robots-Tag: noindex, nofollow`, allows pixelgesellen.de to read `catalog.json` and caches hashed assets for a year.
 
 ### Tools used
 
