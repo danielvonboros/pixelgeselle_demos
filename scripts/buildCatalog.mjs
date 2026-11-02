@@ -19,12 +19,14 @@ const demos = [];
 
 for (const slug of await readdir(join(root, "sites"))) {
   const info = JSON.parse(await readFile(join(root, "sites", slug, "src", "demo.json"), "utf8"));
+  const preview = join(root, "previews", `${slug}.jpg`);
   const photo = join(root, "sites", slug, "src", "assets", "photos", `${info.thumbnail}-800.jpg`);
+  const image = (await exists(preview)) ? preview : (await exists(photo)) ? photo : null;
   let thumbnail = null;
 
-  if (await exists(photo)) {
+  if (image) {
     await mkdir(join(dist, "catalog"), { recursive: true });
-    await copyFile(photo, join(dist, "catalog", `${slug}.jpg`));
+    await copyFile(image, join(dist, "catalog", `${slug}.jpg`));
     thumbnail = `${baseUrl}/catalog/${slug}.jpg`;
   }
 

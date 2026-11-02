@@ -19,6 +19,7 @@
     "build:ahrens": "yarn workspace @pixelgeselle/ahrens build",
     "build": "yarn build:raumton && yarn build:phase && yarn build:firstlinie && yarn build:ahrens && yarn catalog",
     "catalog": "node scripts/buildCatalog.mjs",
+    "previews": "node scripts/buildPreviews.mjs",
     "preview": "vite preview --port 4173",
     "lint": "eslint ."
   },
