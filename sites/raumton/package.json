@@ -1,0 +1,20 @@
+{
+  "name": "@pixelgeselle/raumton",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fontsource-variable/inter-tight": "^5.2.5",
+    "@mui/material": "^6.4.4",
+    "@pixelgeselle/core": "0.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

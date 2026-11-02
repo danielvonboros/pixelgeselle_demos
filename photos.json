@@ -1,0 +1,36 @@
+{
+  "raumton": [
+    { "name": "room", "id": "photo-1758486561455-ebd0d3ba7423", "page": "wicker-chair-with-metal-legs-on-a-wooden-floor-DJ3dx5MoUIw", "ratio": "16:9", "focus": [0.5, 0.62] },
+    { "name": "work", "id": "photo-1693985120993-e9b203ce7631", "page": "a-person-using-a-paint-roller-to-paint-a-wall-rMVjOX8nm2U", "ratio": "4:5" },
+    { "name": "stairs", "id": "photo-1601993957728-1e56ab70c5a8", "page": "minimalist-concrete-staircase-with-vase-0B7ijYKaKcE", "ratio": "4:5" },
+    { "name": "facade", "id": "photo-1685151651730-bf2da73f8083", "page": "a-row-of-yellow-buildings-on-a-city-street-gB0jyHDRfU4", "ratio": "4:5" }
+  ],
+  "phase": [
+    { "name": "evening", "id": "photo-1564078516393-cf04bd966897", "page": "gray-padded-chaise-couch-beside-window-rEJxpBskj3Q", "ratio": "3:4" },
+    { "name": "electrician", "id": "photo-1758101755915-462eddc23f57", "page": "electrician-testing-electrical-panel-with-multimeter-PkHf7BUWbtk", "ratio": "4:3" },
+    { "name": "living-room", "id": "photo-1724582586458-a51791349977", "page": "a-modern-living-room-with-a-large-window-6ybDmGNE2Yg", "ratio": "4:3" },
+    { "name": "cove-light", "id": "photo-1720247520862-7e4b14176fa8", "page": "a-living-room-filled-with-furniture-and-a-flat-screen-tv-nAFuA8t5K9Y", "ratio": "4:3" },
+    { "name": "wallbox", "id": "photo-1692052607011-10d51b24223f", "page": "a-close-up-of-a-wall-mounted-device-11GQmIp-fV0", "ratio": "4:3" },
+    { "name": "reception", "id": "photo-1784012980517-005c26585344", "page": "minimalist-interior-featuring-a-wooden-desk-plant-and-window-VRoK8MxTlHY", "ratio": "4:3" }
+  ],
+  "firstlinie": [
+    { "name": "steep-roof", "id": "photo-1786311577631-fd830fdf07ba", "page": "red-clay-roof-tiles-rPF67L5lGPI", "ratio": "3:4" },
+    { "name": "flat-roof", "id": "photo-1686858230933-430406195ea9", "page": "a-tall-building-with-a-sky-in-the-background-angdO_EXcbU", "ratio": "4:3" },
+    { "name": "dormer", "id": "photo-1763979021741-cfbe06355d7a", "page": "dormer-window-on-a-shingled-roof-q9qF7YT0-F4", "ratio": "1:1" },
+    { "name": "gutter", "id": "photo-1628525901421-5cd4266b2e69", "page": "brown-wooden-frame-during-daytime-l3VKAyNc6T0", "ratio": "3:4" }
+  ],
+  "ahrens": [
+    { "name": "oak", "id": "photo-1737094662085-7e0db16198e3", "page": "a-close-up-view-of-a-wooden-surface-AE84zZ5C1Ws", "ratio": "4:3" },
+    { "name": "walnut", "id": "photo-1736506159893-22cca29b8018", "page": "close-up-of-dark-wood-grain-texture-KKKHaEA4coc", "ratio": "4:3" },
+    { "name": "ash", "id": "photo-1611072337226-1140ab367200", "page": "light-oak-wood-plank-texture-background-JH_R66BihvA", "ratio": "4:3" },
+    { "name": "smoked-oak", "id": "photo-1688127145963-1063f22622a5", "page": "a-close-up-of-a-wood-grain-texture-k3CDaaQ_Qas", "ratio": "4:3", "focus": [0.5, 0.5] },
+    { "name": "detail", "id": "photo-1617873228868-f64a54e91a01", "page": "black-metal-bar-on-brown-wooden-table-jQ0kZbSnoQw", "ratio": "3:2", "focus": [0.5, 0.45] },
+    { "name": "kitchen", "id": "photo-1771270731051-9cfbb7222946", "page": "modern-dark-kitchen-with-wood-accents-UBoDgr8Y0YA", "ratio": "4:5" },
+    { "name": "library", "id": "photo-1781032392300-ed3bdf78ef4c", "page": "a-modern-light-wood-wall-unit-with-shelves-and-cabinets-gNB_zp_NdDE", "ratio": "4:5" },
+    { "name": "counter", "id": "photo-1784000799741-9a3911cf6e4d", "page": "modern-counter-with-illuminated-wooden-shelves-and-small-bottles-KrhNtB8ANe8", "ratio": "4:5" },
+    { "name": "wardrobe", "id": "photo-1775241202442-a49b659b3da5", "page": "modern-bedroom-with-minimalist-wooden-shelving-unit-and-closet-uaXXfDk_UCs", "ratio": "1:1" },
+    { "name": "staircase", "id": "photo-1784572546490-500144f113ab", "page": "modern-wooden-staircase-illuminated-by-warm-lighting-M4dpV6STEDM", "ratio": "1:1" },
+    { "name": "table", "id": "photo-1585128903994-9788298932a6", "page": "brown-wooden-table-with-chairs-JggpIf_rt4E", "ratio": "1:1" },
+    { "name": "workshop", "id": "photo-1590880795696-20c7dfadacde", "page": "brown-wooden-table-with-white-printer-papers-v13x0qU4afA", "ratio": "16:9" }
+  ]
+}
