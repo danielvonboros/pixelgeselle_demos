@@ -1,11 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import { PageContainer } from "@pixelgeselle/core";
 import type { ComponentType } from "react";
 import DormerDrawing from "../components/dormerDrawing/DormerDrawing";
 import EavesDrawing from "../components/eavesDrawing/EavesDrawing";
 import GutterDrawing from "../components/gutterDrawing/GutterDrawing";
 import ParapetDrawing from "../components/parapetDrawing/ParapetDrawing";
-import { services, type DrawingId } from "../content/services";
+import { serviceHref, servicePage, services, type DrawingId } from "../content/services";
 import { colors, fonts } from "../theme";
 
 const drawingComponents: Record<DrawingId, ComponentType> = {
@@ -34,6 +34,14 @@ const Services = () => (
               {service.title}
             </Typography>
             <Typography sx={{ fontSize: 15, lineHeight: 1.55, color: colors.muted }}>{service.text}</Typography>
+            <Link
+              href={serviceHref(service.slug)}
+              aria-label={`${service.title}: ${servicePage.more}`}
+              underline="hover"
+              sx={{ alignSelf: "flex-start", fontFamily: fonts.mono, fontSize: 13, color: colors.text, py: 0.5, "&:hover": { color: colors.accent } }}
+            >
+              {servicePage.more}
+            </Link>
           </Box>
         );
       })}

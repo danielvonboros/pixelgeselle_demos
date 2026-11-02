@@ -4,7 +4,7 @@ import { site } from "../../content/site";
 const Logo = () => (
   <Box
     component="a"
-    href="#top"
+    href={site.homeHref}
     aria-label={site.homeLabel}
     sx={{ color: "inherit", textDecoration: "none", display: "flex", flexDirection: "column", lineHeight: 1 }}
   >

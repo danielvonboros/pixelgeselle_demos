@@ -8,7 +8,10 @@ export const contact = {
     project: { label: "Projekt", value: "Dein Dach" },
     phone: { label: "Telefon", value: "Anrufen" },
     mail: { label: "E-Mail", value: "Schreiben" },
-    sheet: { label: "Blatt", value: "01 / 01 · Rev. A" },
+    sheet: {
+      label: "Blatt",
+      value: (page: number, total: number) => `${String(page).padStart(2, "0")} / ${String(total).padStart(2, "0")} · Rev. A`,
+    },
     legal: { label: "Rechtliches" },
   },
 };

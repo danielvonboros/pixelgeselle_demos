@@ -1,13 +1,20 @@
+import { href } from "@pixelgeselle/core";
+
 export const site = {
   homeLabel: "Firstlinie, zur Startseite",
+  homeHref: href("/"),
   logo: { first: "first", second: "linie" },
   navLabel: "Hauptnavigation",
   nav: [
-    { href: "#leistungen", label: "01 Leistungen" },
-    { href: "#projekte", label: "02 Projekte" },
-    { href: "#kontakt", label: "03 Kontakt" },
+    { href: href("/#leistungen"), label: "01 Leistungen" },
+    { href: href("/#projekte"), label: "02 Projekte" },
+    { href: href("/karriere"), label: "03 Karriere" },
+    { href: href("/#kontakt"), label: "04 Kontakt" },
   ],
-  cta: { href: "#kontakt", label: "[ Dach anfragen ]" },
+  cta: { href: href("/#kontakt"), label: "[ Dach anfragen ]" },
+  breadcrumbs: { home: "Start", services: "Leistungen", servicesHref: href("/#leistungen") },
+  pageTitle: "Firstlinie Dach und Fassade Hamburg – Beispielseite der Pixelgesellen",
+  notFoundTitle: "Seite nicht gefunden – Firstlinie Dach und Fassade",
 };
 
 export const hero = {

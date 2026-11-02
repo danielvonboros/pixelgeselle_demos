@@ -1,40 +1,44 @@
 import { Box } from "@mui/material";
-import { DemoBar, SkipLink } from "@pixelgeselle/core";
-import { useState } from "react";
-import { woods } from "./content/woods";
-import Careers from "./sections/Careers";
-import Contact from "./sections/Contact";
+import { DemoBar, RouterProvider, Routes, SkipLink, type Route } from "@pixelgeselle/core";
+import { placeRoute, places } from "./content/places";
+import { careers } from "./content/process";
+import { projects } from "./content/projects";
+import { serviceRoute, servicePage, services } from "./content/services";
+import { site } from "./content/site";
+import CareersPage from "./pages/CareersPage";
+import Home from "./pages/Home";
+import PlacePage from "./pages/PlacePage";
+import ProjectsPage from "./pages/ProjectsPage";
+import ServicePage from "./pages/ServicePage";
 import Footer from "./sections/Footer";
 import Header from "./sections/Header";
-import Hero from "./sections/Hero";
-import Intro from "./sections/Intro";
-import Material from "./sections/Material";
-import Process from "./sections/Process";
-import Projects from "./sections/Projects";
 
-const [defaultWood] = woods;
+const routes: Route[] = [
+  { path: "/", title: site.pageTitle, element: <Home /> },
+  ...services.items.map((service) => ({
+    path: serviceRoute(service.slug),
+    title: servicePage.pageTitle(service.title),
+    element: <ServicePage service={service} />,
+  })),
+  { path: projects.route, title: projects.pageTitle, element: <ProjectsPage /> },
+  { path: careers.route, title: careers.pageTitle, element: <CareersPage /> },
+  ...places.items.map((place) => ({
+    path: placeRoute(place.slug),
+    title: places.pageTitle(place.name),
+    element: <PlacePage place={place} />,
+  })),
+];
 
-const App = () => {
-  const [woodId, setWoodId] = useState(defaultWood.id);
-  const wood = woods.find((item) => item.id === woodId) ?? defaultWood;
-
-  return (
-    <>
-      <SkipLink />
-      <DemoBar />
-      <Header />
-      <Box component="main" id="main" tabIndex={-1} sx={{ outline: "none" }}>
-        <Hero wood={wood} onWoodChange={setWoodId} />
-        <Intro />
-        <Material wood={wood} />
-        <Projects />
-        <Process />
-        <Careers />
-        <Contact />
-      </Box>
-      <Footer />
-    </>
-  );
-};
+const App = () => (
+  <RouterProvider>
+    <SkipLink />
+    <DemoBar />
+    <Header />
+    <Box component="main" id="main" tabIndex={-1} sx={{ outline: "none" }}>
+      <Routes routes={routes} notFoundTitle={site.notFoundTitle} />
+    </Box>
+    <Footer />
+  </RouterProvider>
+);
 
 export default App;

@@ -1,5 +1,16 @@
+import { href } from "@pixelgeselle/core";
+
 export const projects = {
   title: "projekte",
+  route: "/projekte",
+  href: href("/projekte"),
+  all: "alle projekte",
+  teaserCount: 3,
+  pageTitle: "Projekte – Werkstatt Ahrens Schreinerei München",
+  crumb: "Projekte",
+  kicker: "PROJEKTE",
+  heading: "Möbel, die genau in einen Raum passen.",
+  lead: "Küchen, Einbaumöbel und Ladenbau aus den letzten drei Jahren. Jedes Stück ist für einen bestimmten Raum entstanden, entworfen mit den Menschen, die ihn nutzen.",
   filterLabel: "Projekte filtern",
   filters: ["Alle", "Wohnen", "Küche", "Gewerbe"],
   items: [
@@ -11,3 +22,5 @@ export const projects = {
     { title: "Esstisch und Bank", place: "Giesing", year: "2023", tag: "Wohnen", photo: "table", ratio: "1 / 1", alt: "Esstisch und Bank aus Eiche in einem Altbau-Esszimmer" },
   ],
 };
+
+export type Project = (typeof projects.items)[number];

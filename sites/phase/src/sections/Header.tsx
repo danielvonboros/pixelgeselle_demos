@@ -1,5 +1,5 @@
 import { Box, Link } from "@mui/material";
-import { PageContainer, useDemo } from "@pixelgeselle/core";
+import { PageContainer, useDemo, useRoute } from "@pixelgeselle/core";
 import Logo from "../components/logo/Logo";
 import Pill from "../components/pill/Pill";
 import { site } from "../content/site";
@@ -7,6 +7,7 @@ import { colors } from "../theme";
 
 const Header = () => {
   const { openDialog } = useDemo();
+  const { isCurrent } = useRoute();
 
   return (
     <Box component="header" sx={{ bgcolor: colors.dark, color: colors.background }}>
@@ -23,6 +24,7 @@ const Header = () => {
             <Link
               key={item.href}
               href={item.href}
+              aria-current={isCurrent(item.href) ? "page" : undefined}
               underline="none"
               sx={{ color: colors.background, fontSize: 15, py: 1, "&:hover": { color: colors.warm } }}
             >

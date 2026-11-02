@@ -3,7 +3,11 @@ import { InquiryForm, PageContainer } from "@pixelgeselle/core";
 import { contact } from "../content/contact";
 import { colors, fonts } from "../theme";
 
-const Inquiry = () => (
+interface InquiryProps {
+  messagePlaceholder?: string;
+}
+
+const Inquiry = ({ messagePlaceholder = contact.messagePlaceholder }: InquiryProps) => (
   <PageContainer
     component="section"
     id="kontakt"
@@ -17,7 +21,7 @@ const Inquiry = () => (
       </Typography>
       <Typography sx={{ fontSize: 16, lineHeight: 1.55, color: colors.muted, maxWidth: 420 }}>{contact.text}</Typography>
     </Box>
-    <InquiryForm withPhotos messagePlaceholder={contact.messagePlaceholder} submitLabel={contact.submit} sx={{ flex: "2 1 480px", minWidth: 0 }} />
+    <InquiryForm withPhotos messagePlaceholder={messagePlaceholder} submitLabel={contact.submit} sx={{ flex: "2 1 480px", minWidth: 0 }} />
   </PageContainer>
 );
 

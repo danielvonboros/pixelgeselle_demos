@@ -1,6 +1,6 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import { PageContainer } from "@pixelgeselle/core";
-import { services } from "../content/services";
+import { serviceHref, services } from "../content/services";
 
 const Services = () => (
   <PageContainer component="section" id="leistungen" aria-labelledby="leistungen-titel" sx={{ py: { xs: 9, md: 14 } }}>
@@ -22,12 +22,16 @@ const Services = () => (
       {services.items.map((item) => (
         <Box
           component="li"
-          key={item.title}
+          key={item.slug}
           sx={{ display: "flex", flexWrap: "wrap", gap: "4px 24px", py: 2.5, borderTop: 1, borderColor: "divider" }}
         >
-          <Box component="span" sx={{ flex: "0 0 180px", fontSize: 17, fontWeight: 600 }}>
-            {item.title}
-          </Box>
+          <Link
+            href={serviceHref(item.slug)}
+            underline="hover"
+            sx={{ flex: "0 0 180px", fontSize: 17, fontWeight: 600, color: "text.primary", "&:hover": { color: "text.secondary" } }}
+          >
+            {item.title} <span aria-hidden="true">→</span>
+          </Link>
           <Box component="span" sx={{ flex: "1 1 220px", fontSize: 15, lineHeight: 1.6, color: "text.secondary" }}>
             {item.text}
           </Box>

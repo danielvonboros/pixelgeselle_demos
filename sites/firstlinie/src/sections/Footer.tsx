@@ -1,5 +1,5 @@
 import { Box, ButtonBase } from "@mui/material";
-import { DemoLegalLinks, DemoNotice, PageContainer, useDemo } from "@pixelgeselle/core";
+import { DemoLegalLinks, DemoNotice, PageContainer, useDemo, useRoute } from "@pixelgeselle/core";
 import type { ReactNode } from "react";
 import { contact } from "../content/contact";
 import { colors, fonts } from "../theme";
@@ -13,8 +13,13 @@ const Cell = ({ label, children }: { label: string; children: ReactNode }) => (
   </Box>
 );
 
-const Footer = () => {
+interface FooterProps {
+  paths: string[];
+}
+
+const Footer = ({ paths }: FooterProps) => {
   const { openDialog } = useDemo();
+  const { path } = useRoute();
   const block = contact.titleBlock;
   const action = { p: 0, justifyContent: "flex-start", fontFamily: fonts.mono, fontSize: 12, textDecoration: "underline", "&:hover": { color: colors.accent } };
 
@@ -35,7 +40,7 @@ const Footer = () => {
           </ButtonBase>
         </Cell>
         <Cell label={block.sheet.label}>
-          <span>{block.sheet.value}</span>
+          <span>{block.sheet.value(paths.indexOf(path) + 1, paths.length)}</span>
         </Cell>
         <Cell label={block.legal.label}>
           <DemoLegalLinks />

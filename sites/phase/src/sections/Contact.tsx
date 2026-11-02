@@ -4,7 +4,11 @@ import Pill from "../components/pill/Pill";
 import { contact } from "../content/contact";
 import { colors } from "../theme";
 
-const Contact = () => {
+interface ContactProps {
+  messagePlaceholder?: string;
+}
+
+const Contact = ({ messagePlaceholder = contact.messagePlaceholder }: ContactProps) => {
   const { openDialog } = useDemo();
 
   return (
@@ -22,7 +26,7 @@ const Contact = () => {
             <Typography sx={{ fontSize: 14, color: colors.darkMuted }}>{contact.emergencyText}</Typography>
           </Box>
         </Box>
-        <InquiryForm inverted withPhotos messagePlaceholder={contact.messagePlaceholder} sx={{ flex: "2 1 400px", minWidth: 0 }} />
+        <InquiryForm inverted withPhotos messagePlaceholder={messagePlaceholder} sx={{ flex: "2 1 400px", minWidth: 0 }} />
       </PageContainer>
     </Box>
   );

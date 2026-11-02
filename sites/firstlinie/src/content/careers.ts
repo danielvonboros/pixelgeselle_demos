@@ -1,0 +1,32 @@
+export const careers = {
+  route: "/karriere",
+  pageTitle: "Karriere: Dachdecker gesucht – Firstlinie Dach und Fassade",
+  crumb: "Karriere",
+  tag: "[ karriere ]",
+  title: "Dachdeckerin oder Dachdecker gesucht.",
+  lead: "Vollzeit und unbefristet, in unserer Kolonne in Hamburg. Bei uns arbeitest du an Steildächern, Flachdächern und Gauben in der ganzen Stadt, mit ordentlichem Gerüst und Material, das reicht.",
+  factsTitle: "[ eckdaten ]",
+  facts: [
+    { label: "Arbeitszeit", value: "40 Stunden, freitags bis 13 Uhr" },
+    { label: "Einsatz", value: "Hamburg und Umgebung" },
+    { label: "Start", value: "ab sofort" },
+    { label: "Gehalt", value: "über Tarif" },
+  ],
+  bringTitle: "[ was du mitbringst ]",
+  bring: [
+    "Abgeschlossene Ausbildung als Dachdeckerin oder Dachdecker",
+    "Schwindelfrei und gern draußen",
+    "Führerschein Klasse B, BE ist ein Plus",
+  ],
+  offerTitle: "[ was wir bieten ]",
+  offer: [
+    "Feste Kolonne und ein Bauleiter, der erreichbar ist",
+    "Neue Arbeitskleidung und eigenes Werkzeug",
+    "Weiterbildung bis zur Meisterprüfung, wir zahlen mit",
+    "Firmenwagen, sobald du eine Kolonne führst",
+  ],
+  applyTag: "[ schnellbewerbung ]",
+  applyTitle: "In zwei Minuten beworben.",
+  applyText: "Kein Anschreiben, kein Lebenslauf nötig. Schick uns deinen Namen und deine Nummer, wir rufen dich innerhalb von zwei Tagen zurück.",
+  submit: "[ Bewerbung senden ]",
+};

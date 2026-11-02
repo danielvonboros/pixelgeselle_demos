@@ -5,7 +5,7 @@ import { colors, fonts } from "../../theme";
 const Logo = () => (
   <Box
     component="a"
-    href="#top"
+    href={site.homeHref}
     aria-label={site.homeLabel}
     sx={{ display: "flex", alignItems: "center", gap: 1.25, color: "text.primary", textDecoration: "none", fontFamily: fonts.sans, fontSize: 18, letterSpacing: "0.02em" }}
   >

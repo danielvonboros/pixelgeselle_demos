@@ -3,6 +3,7 @@ import { useId, useState, type FormEvent } from "react";
 import { demoContent } from "../content/demo";
 import { useDemo } from "../demo/useDemo";
 import FormField from "./FormField";
+import { visuallyHidden } from "./visuallyHidden";
 
 interface InquiryFormProps {
   withPhotos?: boolean;
@@ -11,17 +12,6 @@ interface InquiryFormProps {
   submitLabel?: string;
   sx?: SxProps<Theme>;
 }
-
-const hidden = {
-  position: "absolute",
-  left: 0,
-  top: 0,
-  width: "1px",
-  height: "1px",
-  overflow: "hidden",
-  clip: "rect(0 0 0 0)",
-  whiteSpace: "nowrap",
-} as const;
 
 const InquiryForm = ({ withPhotos = false, inverted = false, messagePlaceholder, submitLabel, sx }: InquiryFormProps) => {
   const { openDialog } = useDemo();
@@ -86,7 +76,7 @@ const InquiryForm = ({ withPhotos = false, inverted = false, messagePlaceholder,
               accept="image/*"
               multiple
               onChange={(event) => setPhotoCount(event.currentTarget.files?.length ?? 0)}
-              sx={hidden}
+              sx={visuallyHidden}
             />
           </Box>
         )}

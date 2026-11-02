@@ -32,4 +32,22 @@ export const demoContent = {
   photo: {
     missing: "Foto folgt",
   },
+  application: {
+    name: "Name",
+    phone: "Handynummer",
+    stage: "Wo stehst du gerade?",
+    stages: ["In der Ausbildung", "Gesellin oder Geselle", "Meisterin oder Meister", "Quereinstieg"],
+    file: "Lebenslauf anhängen, wenn du magst",
+    fileSelected: (name: string) => `Angehängt: ${name}`,
+    submit: "Bewerbung abschicken",
+  },
+  router: {
+    breadcrumbs: "Du bist hier",
+    notFound: {
+      code: "404",
+      title: "Diese Seite gibt es nicht.",
+      text: "Vielleicht hat sich in der Adresse ein Tippfehler eingeschlichen. Auf der Startseite findest du alles Wichtige.",
+      link: "Zur Startseite",
+    },
+  },
 };

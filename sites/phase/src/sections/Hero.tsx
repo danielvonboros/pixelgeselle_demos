@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { PageContainer, Photo } from "@pixelgeselle/core";
 import Pill from "../components/pill/Pill";
+import { serviceHref, services } from "../content/services";
 import { hero } from "../content/site";
 import { photo } from "../photos";
 import { colors } from "../theme";
@@ -20,10 +21,10 @@ const Hero = () => (
           {hero.title}
         </Typography>
         <Box component="ul" aria-label={hero.servicesLabel} sx={{ listStyle: "none", m: 0, p: 0, display: "flex", flexWrap: "wrap", gap: 1.25 }}>
-          {hero.chips.map((chip) => (
-            <li key={chip}>
-              <Pill dark href="#leistungen">
-                {chip}
+          {services.items.map((service) => (
+            <li key={service.slug}>
+              <Pill dark href={serviceHref(service.slug)}>
+                {service.title}
               </Pill>
             </li>
           ))}
